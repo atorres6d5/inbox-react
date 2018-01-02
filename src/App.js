@@ -23,6 +23,11 @@ class App extends Component {
     else{
       thing.fill(false)
     }
+    //
+    //
+    //add select all checkboxes
+    //
+    //
     this.setState({Selected:thing})
   }
 

@@ -14,7 +14,17 @@ class App extends Component {
     }
   }
 
+  toggleSelectAll = (e) =>{
+    let thing = new Array(this.state.Selected.length)
 
+    if(this.state.Selected.includes(false)){
+      thing.fill(true)
+    }
+    else{
+      thing.fill(false)
+    }
+    this.setState({Selected:thing})
+  }
 
   toggleStar = (e,id) =>{
     if(this.state.Starred[id]===true){
@@ -47,7 +57,7 @@ class App extends Component {
     console.log(this.state.Selected);
     return (
       <div className="App container">
-        <Toolbar />
+        <Toolbar selectSquare={this.state.Selected} selectAll={this.toggleSelectAll}/>
         <Messages
            data={this.state.MessageData} toggle={this.toggleStar}
            starred = {this.state.Starred}

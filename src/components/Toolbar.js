@@ -1,8 +1,15 @@
 
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Toolbar = ({}) => {
+
+const Toolbar = ({selectSquare, selectAll}) => {
+  let checkBox = ()=>{
+    if(selectSquare.includes(false)){
+      return "fa fa-minus-square-o"
+    }
+    else{return "fa fa-check-square-o"}
+  }
+
   return (
     <div className="row toolbar">
       <div className="col-md-12">
@@ -12,7 +19,7 @@ const Toolbar = ({}) => {
         </p>
 
         <button className="btn btn-default">
-          <i className="fa fa-check-square-o"></i>
+          <i className={checkBox()} onClick={(e)=>selectAll()}></i>
         </button>
 
         <button className="btn btn-default">

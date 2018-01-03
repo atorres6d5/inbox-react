@@ -2,7 +2,7 @@
 import React from 'react';
 
 
-const Toolbar = ({selectSquare, selectAll}) => {
+const Toolbar = ({selectSquare, selectAll, markRead}) => {
   let checkBox = ()=>{
     if(selectSquare.includes(false)){
       return "fa fa-minus-square-o"
@@ -22,7 +22,7 @@ const Toolbar = ({selectSquare, selectAll}) => {
           <i className={checkBox()} onClick={(e)=>selectAll()}></i>
         </button>
 
-        <button className="btn btn-default">
+        <button className="btn btn-default" onClick={(e)=>{markRead(e) }}>
           Mark As Read
         </button>
 

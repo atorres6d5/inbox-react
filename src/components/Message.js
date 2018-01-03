@@ -1,7 +1,7 @@
 import React from 'react';
 import Label from './Label'
 const Message = ({email, index, clicky, stars, box, selected}) => {
-
+console.log(selected[email.id-1])
 
   return (
     <div className={`row message ${(email.read) ? "read": "unread"} ${(selected[email.id-1] === true) ? "selected": ""}`}>
@@ -10,7 +10,7 @@ const Message = ({email, index, clicky, stars, box, selected}) => {
           <div className="col-xs-2">
 
 
-            <input type="checkbox" onClick={(e)=> box(e,email.id-1)} defaultChecked={`${(selected===true) ? "checked" : ""}`}/>
+            <input type="checkbox" onClick={(e)=> box(e,email.id-1)} checked={`${(selected[email.id-1]===true) ? "checked" : ""}`}/>
           </div>
 
 

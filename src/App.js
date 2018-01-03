@@ -19,16 +19,12 @@ class App extends Component {
 
     if(this.state.Selected.includes(false)){
       thing.fill(true)
-      
+
     }
     else{
       thing.fill(false)
     }
-    //
-    //
-    //add select all checkboxes
-    //
-    //
+
     this.setState({Selected:thing})
   }
 
@@ -59,11 +55,21 @@ class App extends Component {
     }
   }
 
+  markedRead = (e, id)=>{
+    let newDataSet = this.state.MessageData
+    this.state.Selected.forEach((email, index)=>{
+      if(email==true){
+        newDataSet[index]['read']=true
+      }
+    })
+    this.setState({MessageData:newDataSet})
+  }
+
   render() {
     console.log(this.state.Selected);
     return (
       <div className="App container">
-        <Toolbar selectSquare={this.state.Selected} selectAll={this.toggleSelectAll}/>
+        <Toolbar selectSquare={this.state.Selected} selectAll={this.toggleSelectAll.bind(this)} markRead={this.markedRead}/>
         <Messages
            data={this.state.MessageData} toggle={this.toggleStar}
            starred = {this.state.Starred}

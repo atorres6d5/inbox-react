@@ -10,7 +10,7 @@ const Message = ({email, index, clicky, stars, box, selected}) => {
           <div className="col-xs-2">
 
 
-            <input type="checkbox" onClick={(e)=> box(e,email.id-1)} defaultChecked={`${(email.selected===true) ? "checked" : ""}`}/>
+            <input type="checkbox" onClick={(e)=> box(e,email.id-1)} defaultChecked={`${(selected===true) ? "checked" : ""}`}/>
           </div>
 
 

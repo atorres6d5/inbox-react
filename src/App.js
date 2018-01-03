@@ -19,6 +19,7 @@ class App extends Component {
 
     if(this.state.Selected.includes(false)){
       thing.fill(true)
+      
     }
     else{
       thing.fill(false)
